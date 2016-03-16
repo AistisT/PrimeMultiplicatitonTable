@@ -11,14 +11,26 @@ namespace PrimeMultiplicationTable
         static void Main(string[] args)
         {
             PrimeCalculator calc = new PrimeCalculator();
-            List<UInt64> primes = calc.returnPrimes(20);
-            System.Diagnostics.Debug.WriteLine(primes.ToString());
-            for (int i =0; i<primes.Count(); i++)
-            {
-                Console.WriteLine(primes[i]);
+            Output output = new Output();
+            while (true){
+                    List<UInt64> primes = calc.returnPrimes(output.inputHelper());
+                    for (int i = 0; i < primes.Count(); i++)
+                    {
+                        Console.WriteLine(primes[i]);
+                    }
+                }
             }
 
-            Console.ReadKey();
+
+        private UInt64 inputHelper()
+        {
+            string inputvalue="";
+            UInt64 n=0;
+            while (!(UInt64.TryParse(inputvalue, out n) && n>=1)){
+                Console.WriteLine("Input whole number greater than 1");
+                inputvalue = Console.ReadLine();
+            }
+            return n;
         }
     }
 }

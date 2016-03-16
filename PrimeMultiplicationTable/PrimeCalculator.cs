@@ -9,11 +9,11 @@ namespace PrimeMultiplicationTable
 {
     public class PrimeCalculator
     {
-        public List<UInt64> returnPrimes(int n)
+        public List<UInt64> returnPrimes(UInt64 n)
         {
             List<UInt64> primeList = new List<UInt64>() {2};  // first prime number
             UInt64 count = 1, nextPrime = 3; // increment ammount and next prime
-            while (primeList.Count() < n)
+            while ((UInt64)primeList.Count() < n)
             {
                 int index = 0;
                 while (primeList[index] <= Math.Sqrt(nextPrime) && (nextPrime % primeList[index] != 0)) // checking if next prime evenly divides with previous primes up to square root of next prime
