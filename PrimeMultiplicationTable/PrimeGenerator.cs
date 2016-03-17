@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PrimeMultiplicationTable
 {
-    public class PrimeCalculator
+    public class PrimeGenerator
     {
         public List<UInt64> returnPrimes(UInt64 n)
         {

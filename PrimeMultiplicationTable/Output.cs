@@ -10,23 +10,32 @@ namespace PrimeMultiplicationTable
     {
         static void Main(string[] args)
         {
-            PrimeCalculator calc = new PrimeCalculator();
+            PrimeGenerator prime = new PrimeGenerator();
+            MultiplicationTable calc = new MultiplicationTable();
             Output output = new Output();
-            while (true){
-                    List<UInt64> primes = calc.returnPrimes(output.inputHelper());
-                    for (int i = 0; i < primes.Count(); i++)
+            while (true)
+            {
+                List<UInt64> primes = prime.returnPrimes(output.inputHelper());
+                List<List<UInt64>> multTable = calc.returnTable(primes);
+                for (int i = 0; i < multTable.Count(); i++)
+                {
+                    Console.Write(primes[i]);
+                    for (int j = 0; j < multTable.Count(); j++)
                     {
-                        Console.WriteLine(primes[i]);
+                        Console.Write(multTable[i][j]);
                     }
+                    Console.WriteLine("");
                 }
             }
+        }
 
 
         private UInt64 inputHelper()
         {
-            string inputvalue="";
-            UInt64 n=0;
-            while (!(UInt64.TryParse(inputvalue, out n) && n>=1)){
+            string inputvalue = "";
+            UInt64 n = 0;
+            while (!(UInt64.TryParse(inputvalue, out n) && n >= 1))
+            {
                 Console.WriteLine("Input whole number greater than 1");
                 inputvalue = Console.ReadLine();
             }
