@@ -17,14 +17,20 @@ namespace PrimeMultiplicationTable
             {
                 List<UInt64> primes = prime.returnPrimes(output.inputHelper());
                 List<List<UInt64>> multTable = calc.returnTable(primes);
+                Console.Write("{0,0}{1,7}","|", "|");
+                foreach (int p in primes) {
+
+                    Console.Write("{0,5}{1,2}", p, "|");
+                }
+                Console.WriteLine();
                 for (int i = 0; i < multTable.Count(); i++)
                 {
-                    Console.Write(primes[i]);
+                    Console.Write("{0,0}{1,5}{2,2}","|", primes[i], "|");
                     for (int j = 0; j < multTable.Count(); j++)
                     {
-                        Console.Write(multTable[i][j]);
+                        Console.Write("{0,5}{1,2}", multTable[i][j],"|");
                     }
-                    Console.WriteLine("");
+                    Console.WriteLine();
                 }
             }
         }

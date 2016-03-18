@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace PrimeMultiplicationTable
 {
-    class MultiplicationTable
+    public class MultiplicationTable
     {
         public List<List<UInt64>> returnTable (List<UInt64> primes)
         {
+            // returns 2d  list, example how it looks can be seen in test
             List<List<UInt64>> table = new List<List<UInt64>>();
             int index = 0;
             foreach (UInt64 p in primes)
@@ -18,12 +19,10 @@ namespace PrimeMultiplicationTable
                 foreach (UInt64 j in primes)
                 {
                     table[index].Add(p*j);
-                   
                 }
                 index++;
             }
             return table;
-
         }
     }
 }
